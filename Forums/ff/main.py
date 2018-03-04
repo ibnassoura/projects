@@ -1,6 +1,14 @@
+from flask import Flask, render_template
 import models
 import stores
 
+
+app = Flask(__name__)
+
+@app.route("/")
+@app.route("/index")
+def home():
+    return render_template("index.html")
 
 
 def create_members():
@@ -156,5 +164,5 @@ store_should_get_members_with_posts(member_store, post_store)
 
 store_should_get_top_two(member_store, post_store)
 print "xxxxxxxxxxxxx"
-postdate=stores.PostStore()
+postdate= stores.PostStore()
 postdate.get_posts_by_date()
